@@ -33,11 +33,12 @@ class Users{
         }
         else {
             // insert into database
+            $date = date('m/d/Y h:i:s a', time());
 
-            $sql = "INSERT INTO usertable(name,nick,email,occupation,location,age,phone,f_name,m_name,f_occup,m_occup,f_loc,m_loc,f_phone,m_phone,m_status,sex) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO usertable(name,nick,email,occupation,location,age,phone,f_name,m_name,f_occup,m_occup,f_loc,m_loc,f_phone,m_phone,m_status,sex,_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             $stmt = $pdo->prepare($sql);
-            $result = $stmt->execute([$name,$nick,$email,$occup,$loc,$age,$phone,$f_name,$m_name,$f_occup,$m_occup,$f_loc,$m_loc,$f_phone,$m_phone,$m_status,$sex]);
+            $result = $stmt->execute([$name,$nick,$email,$occup,$loc,$age,$phone,$f_name,$m_name,$f_occup,$m_occup,$f_loc,$m_loc,$f_phone,$m_phone,$m_status,$sex,$date]);
 
            if ($result){
 

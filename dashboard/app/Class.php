@@ -327,12 +327,12 @@
 				$f = fopen( 'php://memory', 'w' );
 
 				//set column headers
-				$fields = array( 'Name','Nickname','Email','Occupation','Location','Age','Phone','F_name','M_name','F_occup','M_occup','F_loc','M_loc','F_phone','M_phone','Marital status','Sex' );
+				$fields = array( 'Name','Nickname','Email','Occupation','Location','Age','Phone','F_name','M_name','F_occup','M_occup','F_loc','M_loc','F_phone','M_phone','Marital status','Sex' ,'date');
 				fputcsv( $f, $fields, $delimiter );
 
 				//output each row of the data, format line as csv and write to file pointer
 				while( $row = $query->fetch( PDO::FETCH_ASSOC ) ) {
-					$lineData = array( $row['name'], $row['nick'], $row['email'], $row['occupation'],$row['location'],$row['age'],$row['phone'],$row['f_name'],$row['m_name'],$row['f_occup'],$row['m_occup'],$row['f_loc'],$row['m_loc'],$row['f_phone'],$row['m_phone'],$row['m_status'],$row['sex'] );
+					$lineData = array( $row['name'], $row['nick'], $row['email'], $row['occupation'],$row['location'],$row['age'],$row['phone'],$row['f_name'],$row['m_name'],$row['f_occup'],$row['m_occup'],$row['f_loc'],$row['m_loc'],$row['f_phone'],$row['m_phone'],$row['m_status'],$row['sex'] ,$row['_date']);
 					fputcsv( $f, $lineData, $delimiter );
 				}
 
